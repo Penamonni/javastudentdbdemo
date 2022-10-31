@@ -19,6 +19,7 @@ public class StudentController {
     @Autowired
     Studentservice sService;
 
+    //Various Get-methods
     @GetMapping("students")
     public List<Student> getStudents() {
         return sService.getAllStudents();
@@ -44,12 +45,13 @@ public class StudentController {
         return sService.searchByLastName(lname);
     }
 
+    //Post-method
     @PostMapping("addstudent")
     public Student addStudent(@RequestBody Student student) {
         sService.addStudent(student);
         return student;
     }
-
+    //Delete-method
     @DeleteMapping("students/{id}")
     public void deleteById(@PathVariable long id) {
         sService.deleteById(id);
